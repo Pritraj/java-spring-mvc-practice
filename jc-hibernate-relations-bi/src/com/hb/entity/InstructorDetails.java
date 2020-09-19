@@ -1,10 +1,12 @@
 package com.hb.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity(name = "instructor_details")
 public class InstructorDetails {
@@ -19,6 +21,18 @@ public class InstructorDetails {
 	
 	@Column
 	private String hobby;
+	
+	@OneToOne(mappedBy = "instructorDetails", cascade = CascadeType.ALL) // Instructor.class : 30
+	private Instructor instructor;
+	
+	
+	public Instructor getInstructor() {
+		return instructor;
+	}
+
+	public void setInstructor(Instructor instructor) {
+		this.instructor = instructor;
+	}
 
 	public int getId() {
 		return id;
