@@ -20,7 +20,7 @@ public class GetInstructorDetail {
 
 			session.beginTransaction();
 			
-			int theId = 4;
+			int theId = 5;
 			InstructorDetails instructorDetails = session.get(InstructorDetails.class, theId);
 			System.out.println(instructorDetails.getInstructor());
 			
@@ -28,6 +28,9 @@ public class GetInstructorDetail {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			session.close();
+			factory.close();
 		}
 		
 
