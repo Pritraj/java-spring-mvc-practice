@@ -10,8 +10,18 @@ public class MyDemoLoggingAspect {
 
 	//collection of advice before and after
 	
-	@Before("execution(public void addAccount())")
+	
+	// expression pattern =>
+	// modifier? returnType declaringType? methodName throws?
+	// ? => optional ## else mandatory
+	
+
+	//@Before("execution(public void updateAccount())")
+	//@Before("execution(public void addAccount())")
+	//@Before("execution(public void spring.aop.demo.dao.AccountDao.addAccount())")
+	//@Before("execution(public void add*())")
+	@Before("execution(public * add*())")
 	public void beforeAddAccount() {
-		System.out.println("===> I am running before addAccount using DeloLoggingAspect ===> \n");
+		System.out.println("\n===> I am running before advice from DemoLoggingAspect ===> \n");
 	}
 }
