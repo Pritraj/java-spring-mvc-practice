@@ -1,4 +1,4 @@
-package spring.practice.spring_mvn;
+package spring.practice.mvn;
 
 /**
  * Hello world!
