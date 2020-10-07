@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form:form action="/spring-web-security/authenticateUser" method="POST">
+<form action="/spring-web-security-csrf/authenticateUser" method="POST">
 
 
 	<c:if test="${param.error != null}">
@@ -29,7 +29,9 @@
 	<p>
 	<input type="submit" value="Login"/>
 	</p>
+	
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 
-</form:form>
+</form>
 </body>
 </html>

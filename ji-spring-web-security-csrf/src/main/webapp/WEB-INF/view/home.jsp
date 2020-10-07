@@ -12,7 +12,7 @@
     <b>Good Job Pritam</b>
     </p>
     
-    <form:form action="/spring-web-security/logout" method="POST">
+    <form:form action="/spring-web-security-csrf/logout" method="POST">
     	<input type="submit" value="Logout">
     </form:form>
 </body>
