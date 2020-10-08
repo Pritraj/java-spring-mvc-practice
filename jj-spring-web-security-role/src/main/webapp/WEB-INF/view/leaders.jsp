@@ -11,7 +11,7 @@
 	<br>
 	
 	<p>
-    	<a href="${pageContext.request.contextPath}/">Home</a>
+    	<a href="/spring-web-security-csrf/">Home</a>
     </p>
     
 </body>
