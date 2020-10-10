@@ -47,9 +47,9 @@
 
 		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 		<dependency>
-		    <groupId>org.postgresql</groupId>
-		    <artifactId>postgresql</artifactId>
-		    <version>42.2.16</version>
+		  <groupId>org.postgresql</groupId>
+		  <artifactId>postgresql</artifactId>
+		  <version>42.2.16</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
@@ -70,7 +70,13 @@
 		    <artifactId>jstl</artifactId>
 		    <version>1.2</version>
 		</dependency>
-
+	   <dependency>
+	       <groupId>javax.servlet.jsp</groupId>
+	       <artifactId>javax.servlet.jsp-api</artifactId>
+	       <version>2.3.3</version>
+	       <scope>provided</scope>
+	   </dependency>
+	   
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

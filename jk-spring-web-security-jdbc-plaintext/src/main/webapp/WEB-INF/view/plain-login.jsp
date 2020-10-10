@@ -9,9 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/spring-web-security-csrf/authenticateUser" method="POST">
-
-
+<form action="${pageContext.servletContext.contextPath}/authenticateUser" method="POST">
 	<c:if test="${param.error != null}">
 		<i> Sorry! wrong credentials!!</i>
 	</c:if>

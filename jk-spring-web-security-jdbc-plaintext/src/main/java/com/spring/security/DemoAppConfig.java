@@ -23,50 +23,70 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @PropertySource("classpath:connection.properties")
 public class DemoAppConfig {
 	
-	// setup variable to hold properties
-	
 	@Autowired
 	private Environment env;
-	
-	
-	// setup logger
-	
-	private Logger logger = Logger.getLogger(getClass().getName());
 
+	// Logger for debugging
+	Logger logger = Logger.getLogger(getClass().getName());
+
+	// define a bean for ViewResolver
 	@Bean
 	public ViewResolver viewResolver() {
-		InternalResourceViewResolver irv = new InternalResourceViewResolver();
-		irv.setPrefix("/WEB-INF/view/");
-		irv.setSuffix(".jsp");
-		return irv;
+
+		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+
+		viewResolver.setPrefix("/WEB-INF/view/");
+		viewResolver.setSuffix(".jsp");
+
+		return viewResolver;
 	}
-	
-	// Define bean for security datasource
-	
+
+	// Define a bean for security datasource
 	@Bean
 	public DataSource securityDataSource() {
-		
-		//create connection pool
-		ComboPooledDataSource securituDataSource = new ComboPooledDataSource();
-		//set jdbc driver class
+
+		// create connection pool
+		ComboPooledDataSource securityDataSource 
+			= new ComboPooledDataSource();
+
+		// set the jdbc driver class
 		try {
-			securituDataSource.setDriverClass(env.getProperty("jdbc.driver"));
+			securityDataSource.setDriverClass(env.getProperty("jdbc.driver"));
 		} catch (PropertyVetoException e) {
 			throw new RuntimeException(e);
 		}
 		
-		//log the connection properties
-		logger.info(">>>> jdbc.url=" + env.getProperty("jdbc.url"));
-		logger.info(">>>> jdbc.user=" + env.getProperty("jdbc.user"));
+		// log the connection props
+
+		logger.info(">>>>> jdbc.url= " + env.getProperty("jdbc.url"));
+		logger.info(">>>>> jdbc.user= " + env.getProperty("jdbc.user"));
+
+		// set database connection props
+		securityDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
+		securityDataSource.setUser(env.getProperty("jdbc.user"));
+		securityDataSource.setPassword(env.getProperty("jdbc.password"));
 		
-		//set the db connection props
-		
-		securituDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
-		securituDataSource.setUser(env.getProperty("jdbc.user"));
-		securituDataSource.setPassword(env.getProperty("jdbc.password"));
-		
-		//set connection pool props
-		
-		return securituDataSource;
+		// set connection pool props
+		securityDataSource.setInitialPoolSize(
+				getIntProperty("connection.pool.initialPoolSize"));
+		securityDataSource.setMinPoolSize(
+				getIntProperty("connection.pool.minPoolSize"));
+		securityDataSource.setMaxPoolSize(
+				getIntProperty("connection.pool.maxPoolSize"));
+		securityDataSource.setMaxIdleTimeExcessConnections(
+				getIntProperty("connection.pool.maxIdleTime"));
+		return securityDataSource;
 	}
+	
+	//need a helper method
+	//read envoirment property and convert to int
+	
+	private int getIntProperty(String propName) {
+		
+		String propVal = env.getProperty(propName);
+		int intPropVal =  Integer.parseInt(propVal);
+		
+		return intPropVal;
+	}
+	
 }
