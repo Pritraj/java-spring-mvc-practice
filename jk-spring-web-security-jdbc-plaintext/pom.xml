@@ -45,12 +45,13 @@
 		    <version>${spring-security.version}</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
-		  <groupId>org.postgresql</groupId>
-		  <artifactId>postgresql</artifactId>
-		  <version>42.2.16</version>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>8.0.16</version>
 		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/com.mchange/c3p0 -->
 		<dependency>
