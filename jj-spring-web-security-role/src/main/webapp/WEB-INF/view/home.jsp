@@ -19,11 +19,11 @@
     </p>
     
     <p>
-    	<a href="/spring-web-security-csrf/leaders">Leadership Meeting</a>
+    	<a href="/spring-web-security-role/leaders">Leadership Meeting</a>
     	(Only for Managers)
     </p>
     
-    <form:form action="/spring-web-security-csrf/logout" method="POST">
+    <form:form action="/spring-web-security-role/logout" method="POST">
     	<input type="submit" value="Logout">
     </form:form>
 </body>

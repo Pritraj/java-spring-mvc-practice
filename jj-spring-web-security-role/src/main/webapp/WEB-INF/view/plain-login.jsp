@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/spring-web-security-csrf/authenticateUser" method="POST">
+<form action="/spring-web-security-role/authenticateUser" method="POST">
 
 
 	<c:if test="${param.error != null}">
