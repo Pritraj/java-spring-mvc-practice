@@ -1,0 +1,12 @@
+{
+	"id":1,
+	"firstName":"Pritam",
+	"lastName":"Rajput",
+	"active":true,
+	"adress": {"street":"100 Main st",
+			   "city":"Pune",
+			   "state":"MH"
+			  },
+	"languages":["c","cpp","java"],
+	"test":"test"
+}

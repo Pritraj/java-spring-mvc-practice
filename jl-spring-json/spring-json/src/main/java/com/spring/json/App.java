@@ -10,7 +10,7 @@ public class App {
 			// create object mapper
     		ObjectMapper om = new ObjectMapper(); 
     		//read json
-    		Student student = om.readValue(new File("data/sample.json"), Student.class);
+    		Student student = om.readValue(new File("data/sample-full.json"), Student.class);
     		
     		//print data
     		System.out.println("First Name: " + student.getFirstName());
